@@ -3,12 +3,12 @@ package com.daham;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import com.daham.model.Employee;
 
 public class Main {
+	private static final org.slf4j.Logger log = org.slf4j.LoggerFactory.getLogger(Main.class);
 	 static List<Employee> employees = new ArrayList<>();
 	 static {
 		 employees.add(
@@ -54,7 +54,8 @@ public class Main {
                 employee.getProjects()
         ))
         .collect(Collectors.toSet());
-	     System.out.println(incresedSal);
+		log.info(incresedSal.toString());
+//	     System.out.println(incresedSal);
 	     
 	   // filter
 	     
@@ -66,7 +67,7 @@ public class Main {
                          employee.getLastName(), 
                          employee.getSalary()*10.10, 
                          employee.getProjects())).collect(Collectors.toList());
-	   System.out.println(filterEmployees);
+	   log.info(filterEmployees.toString());
 	   
 	   // find first
 	   Employee firstEmployee=  employees
@@ -78,8 +79,7 @@ public class Main {
                        employee.getSalary()*10.10, 
                        employee.getProjects()))
 	             .findFirst().orElse(null);
-	           
-	   System.out.println(firstEmployee);
+	   log.info(firstEmployee.toString());
 	   
 
 	}
