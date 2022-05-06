@@ -81,6 +81,15 @@ public class Main {
 	             .findFirst().orElse(null);
 	   log.info(firstEmployee.toString());
 	   
+	   
+	   // flat map
+	  String projects = employees
+	   .stream()
+	   .map(employee-> employee.getProjects())
+	   .flatMap(strings->strings.stream())
+	   .collect(Collectors.joining(","));
+	  log.info("[" + projects + "]");
+	   
 
 	}
 
