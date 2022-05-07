@@ -112,7 +112,13 @@ public class Main {
 			 .max()
 			 .orElse(-1);
 	 log.debug("maxSalary:= " + maxSalary);
+	 
+	 double sumSala = employees
+			 .stream()
+			 .map(employee-> employee.getSalary())
+			 .reduce(0.0, Double::sum);
 
+	 log.debug("sumSalary:= " + sumSala);
 	}
 
 }
