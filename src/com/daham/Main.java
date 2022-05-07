@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import com.daham.model.Employee;
 
@@ -88,7 +89,13 @@ public class Main {
 	   .map(employee-> employee.getProjects())
 	   .flatMap(strings->strings.stream())
 	   .collect(Collectors.joining(","));
-	  log.info("[" + projects + "]");
+	  log.info("[ " + projects + " ]");
+	  
+	  // Finite Data 
+	  Stream.generate(Math::random)
+	  .limit(5)
+	  .forEach(s->System.out.println(s));
+	  
 	   
 
 	}
