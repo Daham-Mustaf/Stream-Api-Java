@@ -100,10 +100,18 @@ public class Main {
 	  // Sort
 	 List<Employee> sortedFirstNamEmployees= employees
 	  .stream()
-	  .sorted(( o1, o2)-> o1.getFirstName().compareTo(o2.getFirstName()))
+	  .sorted(( o1, o2)-> o1.getFirstName().compareToIgnoreCase(o2.getFirstName()))
 	  .collect(Collectors.toList());
 	  
-	 log.info(sortedFirstNamEmployees.toString());  
+	 log.info(sortedFirstNamEmployees.toString()); 
+	 
+	 //min and max 
+	 double maxSalary = employees
+			 .stream()
+			 .mapToDouble(employee -> employee.getSalary())
+			 .max()
+			 .orElse(-1);
+	 log.debug("maxSalary:= " + maxSalary);
 
 	}
 
