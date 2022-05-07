@@ -96,7 +96,14 @@ public class Main {
 	  .limit(5)
 	  .forEach(s->System.out.println(s));
 	  
-	   
+	  
+	  // Sort
+	 List<Employee> sortedFirstNamEmployees= employees
+	  .stream()
+	  .sorted(( o1, o2)-> o1.getFirstName().compareTo(o2.getFirstName()))
+	  .collect(Collectors.toList());
+	  
+	 log.info(sortedFirstNamEmployees.toString());  
 
 	}
 
